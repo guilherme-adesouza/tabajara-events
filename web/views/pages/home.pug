@@ -13,6 +13,7 @@ block base-content
     h2 Lista de Eventos
     +search-bar
 
-    ul
-    each activity in activities
-        li= activity
+    ul.event-list
+        each activity in activities
+            li
+                a(href='/activity/id')= activity
