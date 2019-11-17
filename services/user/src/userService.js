@@ -12,7 +12,7 @@ class UserService {
     }
 
     getById(id, cb) {
-        this.userDAO.getById({id, fields: ['id', 'name', 'email']}, cb);
+        this.userDAO.getById({params: {id}, fields: ['id', 'name', 'email']}, cb);
     };
 
     create(values, cb) {
