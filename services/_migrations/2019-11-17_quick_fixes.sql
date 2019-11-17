@@ -1,0 +1,1 @@
+ALTER TABLE activity_event ADD UNIQUE (id_client, id_event);
