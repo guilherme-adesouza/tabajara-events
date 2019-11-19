@@ -14,7 +14,7 @@ router.post('/login', function(req, res, next) {
   const login = req.body;
   console.log('wow, is this post method?', login);
   if(true) {
-    res.redirect(301, '/events');
+    res.redirect(301, '/eventos');
     return;
   }
   res.redirect(301, '/');
