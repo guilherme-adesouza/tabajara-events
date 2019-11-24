@@ -1,1 +1,16 @@
 extends base
+
+block base-content
+    h1(style="text-align: center;")= event.name
+
+    h3 Descrição
+    p= event.description
+
+    h3 Detalhes
+    h4 Horário
+    p Das #{event.start_time} até #{event.end_time}
+    h4 Preço
+    p R$ #{event.price}
+
+    form(action=`/eventos/${event.id}/cadastrar`, method = "post")
+        input(type="submit", value="CADASTRAR-SE")

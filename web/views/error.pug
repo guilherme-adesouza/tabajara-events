@@ -1,6 +1,7 @@
 extends layout
 
 block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+  h1(style="text-align: center;") #{message} - Erro  #{error.status}
+  pre(style="background:#e8e8e8;margin: 10px;border-radius: 4px;padding: 10px;border: 1px solid;") #{error.stack}
+  div(style="text-align: center;")
+    a(href="#" onclick="history.back()") Voltar para a página anterior

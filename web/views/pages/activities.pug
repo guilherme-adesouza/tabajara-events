@@ -1,1 +1,27 @@
 extends base
+
+block base-content
+
+    h1 Inscrições
+
+    h2 Ativas
+
+    div.subscriptions-list
+        ul.event-list
+            each activity in availableActivities
+                li
+                    div
+                        a(href=`/eventos/${activity.event.id}`) #{activity.event.name}
+                        a(href=`/inscricoes/${activity.id}/cancelar`, style="float: right;") Cancelar Inscrição
+                    div
+                        h4 Detalhes
+    h2 Canceladas
+
+    div.subscriptions-list
+        ul.event-list
+            each activity in cancelActivities
+                li
+                    div
+                        a(href=`/eventos/${activity.event.id}`) #{activity.event.name}
+                    div
+                        h4 Detalhes

@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h1(style="text-align: center;") #{message}
+    div(style="margin: 10px;padding: 10px;")
+        p(style="font-weight: bold;") #{error.status}
+        p #{error.stack}
+    div(style="text-align: center;")
+        a(href="#" onclick="history.back()") Voltar para a página anterior

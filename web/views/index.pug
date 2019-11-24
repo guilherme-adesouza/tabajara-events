@@ -5,9 +5,9 @@ block content
   form(style="width: 500px; margin: auto;", name="login", action="/login", method="post")
     div.input
       span.label Usuário
-      input(type="text", name="user")
+      input(type="text", name="username", required=true)
     div.input
       span.label Senha
-      input(type="password", name="password")
+      input(type="password", name="password", required=true)
     div.actions
       input(type="submit", value="LOGIN")

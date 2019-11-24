@@ -14,6 +14,6 @@ block base-content
     +search-bar
 
     ul.event-list
-        each activity in activities
+        each event in events
             li
-                a(href=`/events/${activity.id}`)= activity.name
+                a(href=`/eventos/${event.id}`)= event.name

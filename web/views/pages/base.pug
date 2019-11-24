@@ -4,7 +4,7 @@ block content
     header
         nav
             ul
-             - list = [{text: "Home", link: '/'}, {text: "Eventos", link: '/eventos'}, {text: "Inscrições", link: '/inscricoes'}, {text: "Certificados", link: '/certificados'}, {text: "Sair", link: '/logout'}]
+             - list = [{text: "Eventos", link: '/eventos'}, {text: "Inscrições", link: '/inscricoes'}, {text: "Certificados", link: '/certificados'}, {text: "Sair", link: '/logout'}]
                 each item in list
                     li
                         a(href=item.link)= item.text
