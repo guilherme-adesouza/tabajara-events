@@ -1,5 +1,5 @@
 const ActivityCancelService = require('./activityCancelService');
-const request = require('./utils/request');
+const utilsRequest = require('./utils/request');
 
 class ActivityCancelController {
     constructor() {
@@ -8,9 +8,13 @@ class ActivityCancelController {
 
     cancel(req, res) {
         const id = req.params.id;
-        request(() => {
-            this.activityCancelService.cancel(id, (user) => {
-                res.status(200).send({message: "Update successfully", user});
+        utilsRequest(() => {
+            this.activityCancelService.cancel(id, (response = {}) => {
+                if(response.error) {
+                    res.status(400).send({message: response.error});
+                    return;
+                }
+                res.status(200).send({message: "Cancel successfully"});
             })
         }, res);
     }

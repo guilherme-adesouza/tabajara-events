@@ -1,4 +1,4 @@
-const dao = require('./database/database');
+const dao = require('./database/dao');
 const BasicDAO = require('./database/basicDAO');
 
 class AuthDAO extends BasicDAO {
@@ -8,7 +8,7 @@ class AuthDAO extends BasicDAO {
     }
 
     getByUsername(username, cb) {
-        const params = {username};
+        const params = {name: username};
         return dao.selectOne({table: this.table, params}, cb);
     };
 

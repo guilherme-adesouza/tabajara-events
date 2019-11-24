@@ -12,4 +12,8 @@ router.get('/:id', (req, res) => {
     controller.getById(req, res);
 });
 
+router.get('/user/:userId', (req, res) => {
+    controller.getByUser(req, res);
+});
+
 module.exports = router;

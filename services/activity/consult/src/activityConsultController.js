@@ -1,6 +1,6 @@
 const ActivityConsultService = require('./activityConsultService');
-const request = require('./utils/request');
-
+const utilsRequest = require('./utils/request');
+const request = require('request');
 
 function populateUserInfo(activity, client) {
     delete activity.id_client;
@@ -15,11 +15,12 @@ function populateEventInfo(activity, event) {
 class ActivityConsultController {
     constructor() {
         this.activityConsultService = new ActivityConsultService();
+        this.eventsURL = 'http://localhost:5004/api/';
     }
 
     getById(req, res) {
         const id = req.params.id;
-        request(() => {
+        utilsRequest(()=> {
             this.activityConsultService.getById(id, (activity) => {
                 if(!!activity) {
                     this.getAdditionalInfo(activity, res, () => {
@@ -33,7 +34,7 @@ class ActivityConsultController {
     }
 
     getAll(req, res) {
-        request(() => {
+        utilsRequest(()=> {
             this.activityConsultService.getAll((activityList) => {
                 for (const activity of activityList) {
                     this.getAdditionalInfo(activity, res, () => {});
@@ -44,6 +45,22 @@ class ActivityConsultController {
                 }, 1000)
             })
         }, res);
+    }
+
+    getByUser(req, res) {
+        const context = this;
+        const userId = req.params.userId;
+        utilsRequest( ()=> {
+            this.activityConsultService.getByUser(parseInt(userId), (activityList) => {
+                for (const activity of activityList) {
+                    this.getAdditionalInfo(activity, res, () => {});
+                }
+                //MIAUUUUUUUUUUUUUUUUU
+                setTimeout(function() {
+                    res.status(200).send(activityList);
+                }, 1000)
+            })
+        });
     }
 
     getAdditionalInfo(activity, res, cb) {

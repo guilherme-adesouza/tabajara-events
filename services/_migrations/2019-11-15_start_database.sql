@@ -30,7 +30,8 @@ CREATE TABLE "event" (
   "description" TEXT NOT NULL,
   "start_time" TIME NOT NULL,
   "end_time" TIME NOT NULL,
-  "price" DECIMAL(10,2) NULL DEFAULT 0,
+  "price" DECIMAL(10,2) NOT NULL DEFAULT 0,
+  "date" DATE NOT NULL DEFAULT NOW(),
   PRIMARY KEY ("id"));
 
 
@@ -61,7 +62,7 @@ CREATE TABLE "activity_event" (
 CREATE TABLE "check_in" (
   "id" SERIAL,
   "id_activity_event" INT NOT NULL,
-  "date" TIMESTAMP NOT NULL,
+  "date" TIMESTAMP NOT NULL DEFAULT NOW(),
   PRIMARY KEY ("id"),
   CONSTRAINT "fk_checkin_activity_event1"
     FOREIGN KEY ("id_activity_event")

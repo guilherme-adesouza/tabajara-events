@@ -14,6 +14,11 @@ class ActivityConsultDAO {
         return dao.selectMany({table: this.table, ...params}, cb);
     }
 
+    getByUser(params, cb) {
+        console.log(params);
+        return dao.selectMany({table: this.table, ...params}, cb);
+    };
+
 }
 
 module.exports = ActivityConsultDAO;

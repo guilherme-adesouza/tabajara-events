@@ -13,6 +13,10 @@ class ActivityConsultService {
         this.activityConsultDAO.getById({params: {id}}, cb);
     };
 
+    getByUser(id, cb) {
+        this.activityConsultDAO.getByUser({params: {id_client: id}}, cb);
+    }
+
     getUserInfo(id, cb){
         request.get(
             this.userService + "/" + id ,
