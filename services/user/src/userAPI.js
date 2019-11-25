@@ -8,6 +8,10 @@ router.post('/', (req, res) => {
     controller.create(req, res);
 });
 
+// router.get('/create', (req, res) => {
+//     controller.createDefault(req, res);
+// });
+
 router.get('/', (req, res) => {
     controller.getAll(req, res);
 });

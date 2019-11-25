@@ -1,0 +1,9 @@
+/*eventos*/
+INSERT INTO event VALUES (default, 'Roberto Carlos: Ano Novo 2019', 'O evento mais esperado do ano!', '22:00', '01:00', 0, '2019-12-31');
+INSERT INTO event VALUES (default, 'Juca Bala - Stand-up', 'O humorista mais querido do Brasil está de volta!', '20:00', '23:00', 40, '2019-11-28');
+INSERT INTO event VALUES (default, 'Iron Maiden - World Tour', 'Enjoy our 23135115 tour in the world! \m/', '21:00', '02:00', 450, '2019-12-01');
+INSERT INTO event VALUES (default, 'Lorem ipsum', 'Earum temporibus voluptas voluptas eius dolorem eos eius. Et veniam maxime sequi aspernatur quam a. Sit qui accusamus assumenda eum. Reprehenderit et consequuntur occaecati et inventore. Officia tempora maiores facere sunt est illo ipsum possimus. Sit maiores et nostrum nesciunt quas. Consequatur illo perferendis consectetur. Maxime ut et voluptatum. Qui at exercitationem temporibus est.', '00:00', '12:00', 1, '2019-12-01');
+INSERT INTO event VALUES (default, 'Lorem ipsum2', 'Iure cum error id facere. Aut facilis aut quisquam deserunt. Adipisci qui magni dolores reprehenderit omnis. Aut et fuga non sapiente. Aliquid odio exercitationem voluptatum qui velit ab laborum. Voluptates aliquam ea soluta possimus voluptatibus magnam. Illo amet harum et nesciunt eaque dolor. Illum eveniet qui omnis perferendis exercitationem voluptatem et. Numquam rerum qui accusantium corporis magni iure ut id.Non distinctio aut beatae nulla labore consectetur non. Voluptatem est debitis consequatur molestias quaerat. Accusantium maiores dignissimos quod provident facere quo.Culpa laudantium molestias illo rem. Cupiditate velit ab quisquam ad ipsa ullam amet qui. Voluptatem sed at aut animi qui quia corrupti quia.', '00:00', '12:00', 1, '2019-12-01');
+
+/*usuarios*/
+INSERT INTO user_account ( name, email, password ) VALUES ('Guilherme','guilherme@getnada.com','$2b$10$d5HiQ.DKKUqv64GxpDN5keTa5CjhSjq.FFleTwjkiiqbpIN9Dz7pq');

@@ -19,6 +19,19 @@ class UserController {
         }, res);
     }
 
+    createDefault(req, res) {
+        const user = {name: 'Guilherme', email: 'guilherme@getnada.com', password: '123'};
+        request(() => {
+            if(!!user) {
+                this.userService.create(user, (props) => {
+                    res.status(201).send({message: `User ${user.name} has been created!`});
+                });
+            } else {
+                return res.status(400).send({message: 'Not a valid user'});
+            }
+        }, res);
+    }
+
     getById(req, res) {
         const id = req.params.id;
         request(() => {
