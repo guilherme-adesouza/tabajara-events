@@ -8,7 +8,7 @@ const {
 
 const Config = {
     'APP': {
-        'PORT': PORT || 5005,
+        'PORT': PORT || 5006,
         'HOST': HOST || 'localhost',
         'API_TOKEN': API_TOKEN || '5BF2CDD9AF84BB7BB06B7361AC29C468BED3E9BFC8',
         'JWT_EXPIRATION_MINUTES': JWT_EXPIRATION_MINUTES || 60,

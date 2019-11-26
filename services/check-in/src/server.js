@@ -14,7 +14,7 @@ app.use('/api', apiRoute);
 
 
 app.get('/', (req, res) => {
-    res.send({message: "Server User API it's working! \\o/" });
+    res.send({message: "Server Check-in API it's working! \\o/" });
 });
 
 module.exports = app;

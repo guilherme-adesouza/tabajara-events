@@ -15,19 +15,24 @@ class ActivityRegisterController {
                 method: 'GET'
             },
             function(error, response, body) {
-                const fullUser = JSON.parse(response.body);
-                request({
-                        url: this.mailURL,
-                        method: 'POST',
-                        body: {
-                            email: fullUser.email,
-                            type: "SUBSCRIPTION"
+                if(response) {
+                    const fullUser = JSON.parse(response.body);
+                    request({
+                            url: this.mailURL,
+                            method: 'POST',
+                            body: {
+                                email: fullUser.email,
+                                type: "SUBSCRIPTION"
+                            },
+                            json: true
                         },
-                        json: true
-                    },
-                    function (error, response, body) {
-                        console.log("MAIL REGISTER: ", response);
-                    });
+                        function (error, response, body) {
+                            console.log("MAIL REGISTER: ", response);
+                        }
+                    );
+                } else {
+                    console.error(error);
+                }                
             }
         );
     }

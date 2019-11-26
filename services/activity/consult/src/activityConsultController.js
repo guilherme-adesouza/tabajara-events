@@ -68,7 +68,7 @@ class ActivityConsultController {
             if (response.statusCode >= 200 && response.statusCode < 300) {
                 populateEventInfo(activity, JSON.parse(body));
                 this.activityConsultService.getUserInfo(activity.id_client, (error, response, body) => {
-                    if (response.statusCode >= 200 && response.statusCode < 300) {
+                    if (response && response.statusCode >= 200 && response.statusCode < 300) {
                         populateUserInfo(activity, JSON.parse(body));
                         cb();
                     } else {
