@@ -20,6 +20,10 @@ router.get('/checkin', (req, res) => {
     controller.getCheckIn(req, res);
 });
 
+router.get('/activities', (req, res) => {
+    controller.getActivities(req, res);
+});
+
 router.get('/events', (req, res) => {
     controller.getEvents(req, res);
 });

@@ -5,6 +5,7 @@ class SyncService {
         this.userService = 'http://localhost:5001/api/';
         this.checkInService = 'http://localhost:8006/api/';
         this.eventsService = 'http://localhost:5004/api/';
+        this.activityConsultService = 'http://localhost:5011/api/';
     };
 
     createUsers(users = [], cb) {
@@ -45,6 +46,13 @@ class SyncService {
     getEvents(cb){
         request.get(
             this.eventsService,
+            cb
+        )
+    }
+
+    getActivities(cb){
+        request.get(
+            this.activityConsultService,
             cb
         )
     }

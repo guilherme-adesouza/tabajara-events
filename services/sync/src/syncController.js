@@ -56,5 +56,13 @@ class SyncController {
             })
         })
     }
+
+    getActivities(req, res) {
+        request(() => {
+            this.syncService.getActivities((error, response, body) => {
+                res.status(200).send(JSON.parse(body));
+            })
+        })
+    }
 }
  module.exports = SyncController;
