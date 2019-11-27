@@ -6,7 +6,7 @@ class ActivityRegisterController {
     constructor() {
         this.activityRegisterService = new ActivityRegisterService();
         this.mailURL = 'http://localhost:5002/api';
-        this.userURL = 'http://localhost:5002/api';
+        this.userURL = 'http://localhost:5001/api';
     }
 
     sendSubscriptionEmail(userId){
@@ -15,7 +15,7 @@ class ActivityRegisterController {
                 method: 'GET'
             },
             function(error, response, body) {
-                if(response) {
+                if(response && response.statusCode >= 200 && response.statusCode <= 400) {
                     const fullUser = JSON.parse(response.body);
                     request({
                             url: this.mailURL,
@@ -31,7 +31,7 @@ class ActivityRegisterController {
                         }
                     );
                 } else {
-                    console.error(error);
+                    console.error(response, error);
                 }                
             }
         );

@@ -5,7 +5,7 @@ const requestCustom = require('./utils/request');
 const chave = 'certificado_bo_do_catarina';
 
 const CHECKIN_URL = 'http://localhost:5003/api';
-const EVENT_CONSULT_URL = 'http://localhost:5004/api';
+const ACTIVITY_CONSULT_URL = 'http://localhost:5011/api';
 
 function formatDate(date, lang = 'pt-BR'){
     return new Date(date).toLocaleString(lang, { year: 'numeric', month: 'long', day: 'numeric' })
@@ -29,7 +29,7 @@ class CertificateController {
         console.log(req.body)
         let checkin = undefined;
         const context = this;
-        return request.get(CHECKIN_URL + `/${eventCertificate.id_user_event}`, function(error, response, body) {
+        return request.get(CHECKIN_URL + `/${eventCertificate.id_activity_event}`, function(error, response, body) {
             console.log(response)
             if (response && response.statusCode === 200) {
                 checkin = JSON.parse(body);
@@ -60,7 +60,7 @@ class CertificateController {
     get(req, res, cb) {
         const id = req.params.id;
         const context = this;
-        return request.get(EVENT_CONSULT_URL + `/${id}`, function(error, response, body) {
+        return request.get(ACTIVITY_CONSULT_URL + `/${id}`, function(error, response, body) {
             if (response && response.statusCode === 200) {
                 const result = JSON.parse(body);
                 return requestCustom(() => {
@@ -78,14 +78,22 @@ class CertificateController {
                     }
                 }, res)
             } else {
+                console.log(response);
                 return res.status(403).send({message: 'Não pode consultar certificado'});
             }
         })
     }
 
+    getAll(req, res){
+        this.certificateService.getAll((certificates) => {
+            res.status(200).send(certificates);
+        })
+    }
+
     render(req, res) {
-        this.get(req, res, (certificate, event, client) => {
+        this.get(req, res, ({certificate, event, client}) => {
             const template = templates.find(t => t.id = certificate.template) || templates[0];
+            console.log(certificate, event, client)
             res.render('certificate', {certificate, event, user: client, template});
         });
     }

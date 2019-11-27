@@ -2,16 +2,8 @@ extends base
 include ../mixin/search-bar
 
 block base-content
-    script(type='text/javascript').
-        function search() {
-            const input = document.getElementById('search-events');
-            let url = new URL(window.location.href);
-            url.searchParams.set('q', input.value);
-            window.location = url.href;
-        }
 
     h2 Lista de Eventos
-    +search-bar
 
     ul.event-list
         each event in events

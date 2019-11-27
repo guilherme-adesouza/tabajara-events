@@ -12,7 +12,9 @@ block base-content
                 li
                     div
                         a(href=`/eventos/${activity.event.id}`) #{activity.event.name}
-                        a(href=`/inscricoes/${activity.id}/cancelar`, style="float: right;") Cancelar Inscrição
+                    div(style="float: right;")
+                        a(href=`/inscricoes/${activity.id}/cancelar`, style="display: block;") Cancelar Inscrição
+                        a(href=`/checkin/${activity.id}`, style="display: block;") Fazer Check-in
                     div
                         h4 Detalhes
     h2 Canceladas

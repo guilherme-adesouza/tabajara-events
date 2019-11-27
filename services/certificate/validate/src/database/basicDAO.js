@@ -10,10 +10,6 @@ class BasicDAO {
         return dao.selectOne({table: this.table, ...params}, cb);
     };
 
-    getByUserEventId(params, cb) {
-        return dao.selectOne({table: this.table, ...params}, cb);
-    };
-
     insert(params, cb) {
         return dao.insert({table: this.table, ...params}, cb);
     }

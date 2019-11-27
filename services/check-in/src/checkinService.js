@@ -7,11 +7,11 @@ class CheckinService {
     };
 
     getById(id, cb) {
-        this.checkinDAO.getById({id, fields: ['id', 'id_user_event', 'date']}, cb);
+        this.checkinDAO.getById({id, fields: ['id', 'id_activity_event', 'date']}, cb);
     };
 
     getByEventId(id, cb) {
-        this.checkinDAO.getByEventId({id, fields: ['id', 'id_user_event', 'date']}, cb);
+        this.checkinDAO.getByEventId({id, fields: ['id', 'id_activity_event', 'date']}, cb);
     }
 
     create(values, cb) {
@@ -27,15 +27,11 @@ class CheckinService {
 
     update(id, values, cb) {
         const params = {id};
-        let user = values;
-        if(!!values.password) {
-            user.password = UserService.encrypt(values.password);
-        }
-        return this.checkinDAO.update({values: user, params}, cb);
+        return this.checkinDAO.update({values, params}, cb);
     }
 
     getAll(cb) {
-        return this.checkinDAO.getAll({fields: ['id', 'id_user_event', 'date']}, cb);
+        return this.checkinDAO.getAll({fields: ['id', 'id_activity_event', 'date']}, cb);
     }
 }
 

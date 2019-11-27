@@ -1,4 +1,12 @@
 mixin search-bar(props)
+    script(type='text/javascript').
+        function search() {
+            const input = document.getElementById('search-events');
+            let url = new URL(window.location.href);
+            url.searchParams.set('q', input.value);
+            window.location = url.href;
+        }
+
     div.search-bar
         input(id='search-events', placeholder='Pesquisar...')
         button(onclick='search()') Pesquisar

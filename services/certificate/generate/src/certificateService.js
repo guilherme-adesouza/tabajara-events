@@ -17,15 +17,15 @@ class CertificateService {
         this.certificateDAO.getById({params: {id}}, cb);
     };
 
-    getByUserEventId(id_user_event, cb) {
-        this.certificateDAO.getByUserEventId({id_user_event}, cb);
+    getByUserEventId(id_activity_event, cb) {
+        this.certificateDAO.getByUserEventId({id_activity_event}, cb);
     };
 
     create(values, cb) {
         let checkin = values;
-        checkin.auth = CertificateService.encrypt(checkin.id_user_event);
+        checkin.authentication = CertificateService.encrypt(checkin.id_activity_event);
         checkin.title = 'CERTIFICADO TOP';
-        checkin.body = 'Você foi certificado por participar';
+        checkin.description = 'Você foi certificado por participar';
         return this.certificateDAO.insert({values: checkin}, cb);
     }
 
@@ -36,8 +36,7 @@ class CertificateService {
 
     update(id, values, cb) {
         const params = {id};
-        let certificate = values;
-        return this.certificateDAO.update({values: certificate, params}, cb);
+        return this.certificateDAO.update({values, params}, cb);
     }
 
     getAll(cb) {

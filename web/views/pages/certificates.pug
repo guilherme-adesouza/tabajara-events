@@ -1,1 +1,19 @@
 extends base
+
+block base-content
+
+    h2 Validar Certificado
+
+    form(action="/certificados/validar")
+        input(type="text", name="token", placeholder="Token", required=true)
+        input(type="submit", value="Enviar")
+
+    h2 Lista de Certificados Disponíveis
+
+    ul.event-list
+        each activity in activities
+            li
+                div
+                    a(href=`/eventos/${activity.event.id}`) #{activity.event.name}
+                div
+                    a(href=activity.urlCertificate, target="_blank") Gerar Certificado

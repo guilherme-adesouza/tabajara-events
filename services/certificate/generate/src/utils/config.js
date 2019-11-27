@@ -18,7 +18,7 @@ const Config = {
         'USER': DB_USER || 'postgres',
         'PASSWORD': DB_PASSWORD || 'postgres',
         'HOST': DB_HOST || 'localhost',
-        'NAME': DB_NAME || 'event',
+        'NAME': DB_NAME || 'tabajara_events',
         'PORT': DB_PORT || 5432,
     },
 };

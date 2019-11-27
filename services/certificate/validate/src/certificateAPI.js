@@ -4,7 +4,7 @@ const router = express.Router();
 
 const controller = new CertificateController();
 
-router.get('/:id', (req, res) => {
+router.get('/', (req, res) => {
     controller.validate(req, res);
 });
 
